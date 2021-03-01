@@ -5,7 +5,7 @@
       src="~assets/quasar-logo-full.svg"
     >
     
-    <q-btn unelevated color="primary" @click="onClick" label="Save" />
+    <q-btn unelevated color="primary" to="/PageTest" label="Page Test" />
     <!-- <p>{{ name }}</p> -->
   </q-page>
 </template>

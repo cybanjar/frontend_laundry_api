@@ -5,8 +5,8 @@
       src="~assets/quasar-logo-full.svg"
     >
     
-    <q-btn unelevated color="primary" label="Save" />
-    <p>{{ name }}</p>
+    <q-btn unelevated color="primary" @click="onClick" label="Save" />
+    <!-- <p>{{ name }}</p> -->
   </q-page>
 </template>
 
@@ -17,28 +17,23 @@ import { reactive, toRefs, onMounted } from "@vue/composition-api";
 export default {
   name: 'PageIndex',
 
-  data() {
-    return {
+  setup() {
+    const state = reactive({
       name: 'Ahmad'
+    });
+
+    onMounted(() => {
+      console.log('Mounted!');
+    });
+
+    const onClick = () => {
+      console.log("ok");
     }
-  },
 
-  mounted() {
-    console.log('Mounted!');
+    return {
+      ...toRefs(state),
+      onClick
+    }
   }
-
-  // setup() {
-  //   const state = reactive({
-  //     name: 'Amin'
-  //   });
-
-  //   onMounted(() => {
-  //     console.log('Mounted!');
-  //   })
-
-  //   return {
-  //     ...toRefs(state),
-  //   }
-  // }
 }
 </script>
